@@ -1,19 +1,29 @@
+class MyException extends Exception
+{
+    MyException(String message)
+    {
+        super(message);
+    }
+}
 
-class pro26
+class p28
 {
     public static void main(String args[])
     {
         int age = 15;
 
-        if(age < 18)
+        try
         {
-            throw new ArithmeticException("Not eligible to vote");
+            if(age < 18)
+            {
+                throw new MyException("Age must be 18 or above");
+            }
+
+            System.out.println("You are eligible.");
         }
-        else
+        catch(MyException e)
         {
-            System.out.println("Eligible to vote");
+            System.out.println(e.getMessage());
         }
     }
 }
-
-
